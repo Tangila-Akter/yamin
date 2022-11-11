@@ -54,7 +54,7 @@
            <h5 class=" card-title card-title0" id="">{{ $data1->title }}</h5><br>
            <p class="card-text card-title1">Course Fee <span class="right">{{ $data1->regular_fee }} BDT</span></p>
            <p class="card-text card-title1" style="color:red ;">Regular Fee <span class="right" style="text-decoration: line-through;">{{ $data1->discount_fee }} BDT</span></p>
-           <a href="{{ url('/user_coursedetails') }}" class="btn btn-primary btn-hover-dark">View details</a>
+           <a href="{{ url('/user_coursedetails',$data1->id) }}" class="btn btn-primary btn-hover-dark">View details</a>
          </div>
        </div>
      </div>
@@ -80,7 +80,7 @@
            <h5 class=" card-title card-title0" id="">{{ $data2->title }}</h5><br>
            <p class="card-text card-title1">Course Fee <span class="right">{{ $data2->regular_fee }} BDT</span></p>
            <p class="card-text card-title1" style="color:red ;">Regular Fee <span class="right" style="text-decoration: line-through;">{{ $data2->discount_fee }} BDT</span></p>
-           <a href="{{ url('/user_coursedetails') }}" class="btn btn-primary btn-hover-dark">View details</a>
+           <a href="{{ url('/user_coursedetails',$data2->id) }}" class="btn btn-primary btn-hover-dark">View details</a>
          </div>
        </div>
      </div>

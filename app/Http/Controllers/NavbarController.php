@@ -70,7 +70,7 @@ class NavbarController extends Controller
       public function user_coursedetails($id)
      {
         $data=online_Course::find($id);
-       // dd($data);
+        //dd($data);
           return view('user.course_details',compact("data"));
       }
 

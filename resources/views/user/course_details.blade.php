@@ -3,7 +3,8 @@
 <head>
 @include('user.css')
 <style>
-    detail_p{
+  
+    .detail_p{
         font-size: 15px;
     }
     ul.a {
@@ -23,6 +24,7 @@
     <div class="row">
         
             <div class="col" style="margin-top: 25px;">
+              
                 <section></section>
                 <h1 class="text-4xl font-semibold text-gray mb-4">Facebook Marketing</h1>
                 <h2 class="mb-10"></h2>
@@ -32,27 +34,29 @@
                         <div class="col ">
                             <div class="ins">
                                 <div>
-                                    <img src="assets/img/p1.jpg" class="ins_pic" alt="" srcset="">
+                                    @isset($data->ins_image)
+                                    <img src="{{ asset('ins/'.$data->ins_image) }}" class="ins_pic" alt="" >
+                                    @endisset
                                 </div>
                                 <div>
-                                    <h3 class="text_lg">Ayman Sadiq</h3>
-                                    <p class="text-sm">Founder & CEO, 10 Minute School; Forbe's 30 Under 30; Queen's Young Leader; Bestselling Author</p>
+                                    <h3 class="text_lg">
+                                    
+                                      @isset($data->ins_name)
+                                      {{ $data->ins_name }}
+                                       @else
+                                       nam nai Amar
+                                      @endisset
+                                  </h3>
+                                    <p class="text-sm">
+                                      @isset( $data->ins_details )
+                                      {{ $data->ins_details }}
+                                      @endisset
+                                    </p>
                                 </div>
                             </div>
                           
                         </div>
-                        <div class="col ">
-                            <div class="ins">
-                                <div>
-                                    <img src="assets/img/p1.jpg" class="ins_pic" alt="" srcset="">
-                                </div>
-                                <div>
-                                    <h3 class="text_lg">Ayman Sadiq</h3>
-                                    <p class="text-sm">Founder & CEO, 10 Minute School; Forbe's 30 Under 30; Queen's Young Leader; Bestselling Author</p>
-                                </div>
-                            </div>
-                          
-                        </div>
+                        
                       </div>
                 <div>
                     <h5 class="text-xl mb-4 font-medium">কোর্সটি করে যা শিখবেন</h5>
@@ -194,7 +198,7 @@
                 </div>
               </div>
         </section>
-
+       
       </div>
     </div>
  </div>

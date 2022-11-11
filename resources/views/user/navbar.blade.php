@@ -1,6 +1,6 @@
 <div class="container">
     <nav class="nav navbar navbar-expand-lg sticky-top  row0 justify-content-between ">
-       <a class="navbar-brand" href="#"><img height="40" src="user/assets/img/bg.png"></a>
+       <a class="navbar-brand" href="#"><img height="40" src="{{ asset('user/assets/img/bg.png') }}"></a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
@@ -46,10 +46,8 @@
             <div class="">
                 @auth
                 {{-- <li class="scroll-to-section"><a href="{{ url('myreservation') }}">My reservation</a></li>  --}}
-                  {{-- <li><x-app-layout></x-app-layout></li> --}}
-                  <a class="nav-link" href="{{ route('logout') }}"onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
+                  <li><x-app-layout></x-app-layout></li>
+                  
     </a>
                   {{-- <a href="{{ route('logout') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log out</a> --}}
                 @else
