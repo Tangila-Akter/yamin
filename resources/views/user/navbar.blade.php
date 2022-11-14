@@ -46,9 +46,18 @@
             <div class="">
                 @auth
                 {{-- <li class="scroll-to-section"><a href="{{ url('myreservation') }}">My reservation</a></li>  --}}
-                  <li><x-app-layout></x-app-layout></li>
-                  
-    </a>
+                                                {{-- <li><x-app-layout></x-app-layout></li> --}}
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                  @csrf
+                                                  <div class="nav-item">
+                                                      <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                  this.closest('form').submit(); " role="button">
+                                                          {{-- <i class="fas fa-sign-out-alt"></i> --}}
+
+                                                          {{ __('Log Out') }}
+                                                      </a>
+                                                  </div>
+                                                </form>
                   {{-- <a href="{{ route('logout') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log out</a> --}}
                 @else
                 <li><a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
