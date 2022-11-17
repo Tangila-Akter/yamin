@@ -73,26 +73,26 @@
                   
                   <div>
                      <label>Name:</label>
-                     <input type="text" name="name" class="text" placeholder="Write a name" required>
+                     <input type="text" name="name" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Write a name" required>
                  </div>
                  <div>
                     <label>Phone Number:</label>
-                    <input type="text" name="phone" class="text" placeholder="Write phone number" required>
+                    <input type="text" name="phone" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Write phone number" required>
                 </div>
                 <div>
                     <label>Email Address:</label>
-                    <input type="email" name="email" class="text" placeholder="Write phone number" required>
+                    <input type="email" name="email" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Write phone number" required>
                 </div>
                  <div>
                      
-                     <input type="number"  name="usertype" class="text" value="1"  hidden>
+                     <input type="number"  name="usertype" style="background-color: #ffffff; color:#000000;" class=" form-control" value="1"  hidden>
                      
                  </div>
                  <div>
                     <label>Password:</label>
-                    <input type="password" name="password" class="text" placeholder="Write a password" required>
+                    <input type="password" name="password" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Write a password" required>
                 </div>
-                 <div>
+                 <div class="d-flex justify-content-center mb-4">
     
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                          <input  type="submit"  class="btn btn-primary" value="Save">

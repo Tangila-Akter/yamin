@@ -115,7 +115,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get("/deleteadmin_Service/{id}", [AdminController::class, "deleteadmin_Service"]);
         Route::get("/updateadmin_Service/{id}", [AdminController::class, "updateadmin_Service"]);
         Route::post("/update_admin_Service/{id}", [AdminController::class, "update_admin_Service"]);
-
+        Route::get("/updateprofile_update/{id}", [NavbarController::class, "updateprofile_update"]);
+        Route::post("/profile_update/{id}", [NavbarController::class, "profile_update"]);
 
     });
 

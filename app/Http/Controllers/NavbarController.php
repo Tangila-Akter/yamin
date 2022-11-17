@@ -62,6 +62,18 @@ class NavbarController extends Controller
         $data=user::all();
           return view('user.dashboard',compact("data"));
      }
+   
+
+     public function profile_update(Request $request,$id)
+     {
+         $data=user::find($id);
+         $data->name=$request->name;
+         $data->phone=$request->phone;
+         $data->email=$request->email;
+         $data->save();
+ 
+         return redirect()->back();
+     }
       public function user_contact()
      {
         $data=contact::all();

@@ -35,6 +35,9 @@ td:hover{
 .text{
   color: black;
 }
+#editor{
+  color: #000000;
+}
    
 .min-h-screen {
     min-height: 0vh !important;
@@ -75,40 +78,42 @@ td:hover{
               
               <div>
                  <label>Course title</label>
-                 <input type="text" id="title" name="title" class="text" placeholder="Write a title" required>
+                 <input type="text" id="title" name="title" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Write a title" required>
              </div>
              <div>
                  <label>Regular fee</label>
-                 <input type="text" id="regular_fee" name="regular_fee" class="text" placeholder="Regular fee"   required>BDT
+                 <input type="text" id="regular_fee" name="regular_fee" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Regular fee"   required>BDT
                  
              </div>
              <div>
                 <label>Discount fee</label>
-                <input type="text" id="discount_fee" name="discount_fee" class="text" placeholder="Discount fee" required>BDT
+                <input type="text" id="discount_fee" name="discount_fee" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Discount fee" required>BDT
             </div>
             <div>
               <label>Course Purpuse </label>
-              <textarea name="course_purpuse" class="text" row="3"></textarea>
+              <textarea name="course_purpuse" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Course Purpuse" row="6"></textarea>
           </div>
           <div>
             <label>Course About</label>
-            <textarea name="course_about" class="text" row="3" ></textarea>
+            <textarea name="course_about" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Course About" row="6" ></textarea>
           </div>
           <div>
-            <label>Slybus</label>
-            <textarea name="course_slybus" class="text" row="3"></textarea>
+            <label>Syllabus:</label>
+            <div style="background-color: #ffffff; color:#000000;">
+            <textarea  id="editor" name="course_slybus" style="background-color: #ffffff; color:#000000"  placeholder="syllabus" row="6"></textarea>
+            </div>
         </div>
         <div>
           <label>Instractor name </label>
-          <input type="text" id="title" name="ins_name" class="text" placeholder="Instractor name" required>
+          <input type="text" id="title" name="ins_name" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Instractor name" required>
           
       </div>
       <div>
         <label>Instractor about</label>
-        <input type="text" id="title" name="ins_details" class="text" placeholder="Instractor about" required>
+        <input type="text" id="title" name="ins_details" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Instractor about" required>
       </div>
           <div class="col-5"><label for="exampleFormControlInput1" class="form-label">Course type:</label><br>
-            <select name="course_type" class="form-control custom-select" required>
+            <select name="course_type" style="background-color: #ffffff; color:#000000;" class="form-control custom-select" required>
               <option placeholder="">Select a course type</option>
               <option value="1" >Online Course</option>
               <option value="2" >Offline Course</option>
@@ -116,19 +121,19 @@ td:hover{
             </select>
           </div>
           <div>
-            <label>Discount fee</label>
-            <input type="text" id="video_link" name="video_link" class="text" placeholder="Video link" required>BDT
+            <label>Video link:</label>
+            <input type="text" id="video_link" name="video_link" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Video link" required>
         </div>
             <div>
                 <label>Images:</label>
-                <input type="file" id="image" name="image" required>
+                <input type="file" id="image" style="background-color: #ffffff; color:#000000;" class=" form-control" name="image" required>
             </div>
             <div>
               <label>Instractor Images:</label>
-              <input type="file" id="image" name="ins_image" required>
+              <input type="file" id="image" style="background-color: #ffffff; color:#000000;" class=" form-control" name="ins_image" required>
           </div>
            </div>
-             <div>
+             <div class="d-flex justify-content-center mb-4">
 
                   
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

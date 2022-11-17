@@ -75,32 +75,32 @@ td:hover{
               
               <div>
                  <label>Title</label>
-                 <input type="text" id="title" name="title" class="text" placeholder="Write a title" required>
+                 <input type="text" id="title" name="title" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Write a title" required>
              </div>
              <div>
                  <label>Position</label>
-                 <input type="text" id="Position" name="Position" class="text" placeholder="Position"   required>
+                 <input type="text" id="Position" name="Position" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Position"   required>
                  
              </div>
              <div>
                 <label>Facebook Link</label>
-                <input type="text" id="Facebook" name="Facebook" class="text" placeholder="Facebook Link" >
+                <input type="text" id="Facebook" name="Facebook" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Facebook Link" >
             </div>
             <div>
                 <label>YouTube Link</label>
-                <input type="text" id="YouTube" name="YouTube" class="text" placeholder="YouTube Link" >
+                <input type="text" id="YouTube" name="YouTube" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="YouTube Link" >
             </div>
             <div>
                 <label>Linkedin Link</label>
-                <input type="text" id="Linkedin" name="Linkedin" class="text" placeholder="Linkedin Link" >
+                <input type="text" id="Linkedin" name="Linkedin" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Linkedin Link" >
             </div>
             
             <div>
                 <label>Images:</label>
-                <input type="file" id="image" name="image" required>
+                <input type="file"  style="background-color: #ffffff; color:#000000;" class=" form-control" id="image" name="image" required>
             </div>
            </div>
-             <div>
+             <div class="d-flex justify-content-center mb-4">
 
                   
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

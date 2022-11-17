@@ -75,23 +75,23 @@ td:hover{
               
               <div>
                  <label>Course title</label>
-                 <input type="text" id="title" name="title" class="text" placeholder="Write a title" required>
+                 <input type="text" id="title" name="title" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Write a title" required>
              </div>
              <div>
                  <label>Regular fee</label>
-                 <input type="text" id="regular_fee" name="regular_fee" class="text" placeholder="Regular fee"   required>BDT
+                 <input type="text" id="regular_fee" name="regular_fee" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Regular fee"   required>BDT
                  
              </div>
              <div>
                 <label>Discount fee</label>
-                <input type="text" id="discount_fee" name="discount_fee" class="text" placeholder="Discount fee" required>BDT
+                <input type="text" id="discount_fee" name="discount_fee" style="background-color: #ffffff; color:#000000;" class=" form-control" placeholder="Discount fee" required>BDT
             </div>
             <div>
                 <label>Images:</label>
-                <input type="file" id="image" name="image" required>
+                <input type="file" id="image" style="background-color: #ffffff; color:#000000;" class=" form-control" name="image" required>
             </div>
            </div>
-             <div>
+             <div class="d-flex justify-content-center mb-4">
 
                   
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -62,15 +62,11 @@
                     <h5 class="text-xl mb-4 font-medium">কোর্সটি করে যা শিখবেন</h5>
                     
                     <article class="detail_p">
-                        নিজের ব্যবসার বিক্রি বাড়ানোর কৌশল।
-নিজের বিজনেসকে শক্তিশালী ব্র্যান্ড হিসেবে দাঁড় করানোর উপায়।
-নতুন কাস্টমার আকর্ষণ করা ও পুরাতন কাস্টমার ধরে রাখার জন্য উপযুক্ত কন্টেন্ট বানানোর পদ্ধতি।
-ফেসবুকের বিভিন্ন গুরুত্বপূর্ণ ফিচারের ব্যবহার, ফেসবুক পেজ ও ফেসবুক গ্রুপের অর্গানিক রিচ বাড়ানো, ফেসবুক বুস্টিং ও ফেসবুক অ্যাড ম্যানেজারের মাধ্যমে বিজ্ঞাপন দেয়া।
+                        {{$data->course_purpuse}}
                     </article><hr>
                     
                     <h4 class="text-xl mb-4 font-medium"><b>কোর্সটি সম্পর্কে</b></h4>
-                    <p>ডিজিটাল মার্কেটিং সেক্টরের একটি বিশাল অংশ দখল করে রেখেছে ফেসবুক মার্কেটিং। বাংলাদেশে সবচেয়ে বেশি ব্যবহারকারী রয়েছে এই সোশ্যাল মিডিয়া সাইটে। তাই আপনি যে ব্যবসাই করুন না কেন, নিশ্চিতভাবে
-                        <span id="dots">...</span><span id="more">ধরে নিতে পারেন, আপনার টার্গেট কাস্টমারের একটা বিরাট অংশ দিনের একটা উল্লেখযোগ্য পরিমাণ সময় ফেসবুকে কাটায়। আপনি যদি একজন ব্যবসায়ী বা উদ্যোক্তা হন, তবে আপনার কাস্টমারদের সাথে কার্যকর যোগাযোগের সর্বোত্তম মাধ্যম হলো ফেসবুক। সোশ্যাল মিডিয়ায় ব্র্যান্ডের অবস্থান শক্ত করতে সঠিক প্রোডাক্ট আর মূল্য নির্ধারণের পাশাপাশি আপনার জানা প্রয়োজন:
+                    <p>{{$data->course_about}}<span id="dots">...</span><span id="more">ধরে নিতে পারেন, আপনার টার্গেট কাস্টমারের একটা বিরাট অংশ দিনের একটা উল্লেখযোগ্য পরিমাণ সময় ফেসবুকে কাটায়। আপনি যদি একজন ব্যবসায়ী বা উদ্যোক্তা হন, তবে আপনার কাস্টমারদের সাথে কার্যকর যোগাযোগের সর্বোত্তম মাধ্যম হলো ফেসবুক। সোশ্যাল মিডিয়ায় ব্র্যান্ডের অবস্থান শক্ত করতে সঠিক প্রোডাক্ট আর মূল্য নির্ধারণের পাশাপাশি আপনার জানা প্রয়োজন:
 
                             সঠিকভাবে ফেসবুকের অ্যালগরিদম-ফ্রেন্ডলি কনটেন্ট কিভাবে বানাতে হয়?
                             কিভাবে অল্প পরিশ্রম ও স্বল্প সময়ে কনটেন্ট re-purposing করতে হয়?
@@ -96,10 +92,7 @@
 <div class="mb-10">
     <h5 class="text-xl mb-4 font-medium">কোর্স সিলেবাস</h5>
     <ul class="a">
-      <li>habi jabi</li>
-      <li>habi jabi</li>
-      <li>habi jabi</li>
-      <li>habi jabi</li>
+      {!! $data->course_slybus !!}
     </ul>
 <br>
 
@@ -153,15 +146,20 @@
       <div class="col">
         <section  class="sticky-top">
             <div class="card sticky_card" >
-                <video class="detail_video" controls>
-                    <source src="mov_bbb.mp4" type="video/mp4">
-                    <source src="mov_bbb.ogg" type="video/ogg">
+              <iframe class="detail_video" src="{{ $data->video_link }}" 
+              title="YouTube video player" frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write;
+               encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+                {{-- <video class="detail_video" controls>
+                    <source src="{{ $data->video_link }}" type="video/mp4">
+                    <source src="{{ $data->video_link }}" type="video/ogg">
                     Your browser does not support HTML video.
-                  </video>
+                  </video> --}}
                 <div class="card-body">
                   <h5 class="card-title card-title0">Card title</h5>
-                  <p class="card-text card-title1">Discount Fee <span class="right">2,500.00 BDT</span></p>
-                  <p class="card-text card-title1" style="color:red ;">Regular Fee <span class="right" style="text-decoration: line-through;">2,500.00 BDT</span></p>
+                  <p class="card-text card-title1">Discount Fee <span class="right">{{ $data->regular_fee }} BDT</span></p>
+                  <p class="card-text card-title1" style="color:red ;">Regular Fee <span class="right" style="text-decoration: line-through;">{{ $data->discount_fee }} BDT</span></p>
                   <a href="#" class="btn btn-primary btn-hover-dark">কোর্সটি কিনুন </a><br>
                   <br>
                   <div class="row">

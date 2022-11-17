@@ -23,4 +23,15 @@
 <!-- endinject -->
 <!-- Custom js for this page -->
 <script src="admin/assets/js/dashboard.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/35.3.1/classic/ckeditor.js"></script>
+
 <!-- End custom js for this page -->
+
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
