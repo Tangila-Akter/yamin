@@ -26,7 +26,7 @@
             <div class="col" style="margin-top: 25px;">
               
                 <section></section>
-                <h1 class="text-4xl font-semibold text-gray mb-4">Facebook Marketing</h1>
+                <h1 class="text-4xl font-semibold text-gray mb-4">{{ $data->title}}</h1>
                 <h2 class="mb-10"></h2>
                 <div class="mb-10">
                     <h3 class="text-xl mb-4 font-medium">কোর্স ইন্সট্রাক্টর</h3>
@@ -146,18 +146,11 @@
       <div class="col">
         <section  class="sticky-top">
             <div class="card sticky_card" >
-              <iframe class="detail_video" src="{{ $data->video_link }}" 
-              title="YouTube video player" frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write;
-               encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              <iframe  class="detail_video" src="{{ $data->video_link }}">
               </iframe>
-                {{-- <video class="detail_video" controls>
-                    <source src="{{ $data->video_link }}" type="video/mp4">
-                    <source src="{{ $data->video_link }}" type="video/ogg">
-                    Your browser does not support HTML video.
-                  </video> --}}
+
                 <div class="card-body">
-                  <h5 class="card-title card-title0">Card title</h5>
+                  <h5 class="card-title card-title0">{{ $data->title }}</h5>
                   <p class="card-text card-title1">Discount Fee <span class="right">{{ $data->regular_fee }} BDT</span></p>
                   <p class="card-text card-title1" style="color:red ;">Regular Fee <span class="right" style="text-decoration: line-through;">{{ $data->discount_fee }} BDT</span></p>
                   <a href="#" class="btn btn-primary btn-hover-dark">কোর্সটি কিনুন </a><br>
@@ -200,10 +193,11 @@
       </div>
     </div>
  </div>
- 
+</div>
  
 
 @include('user.footer')
+
 
 @include('user.js')
 <script>
