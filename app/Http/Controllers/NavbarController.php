@@ -21,17 +21,17 @@ class NavbarController extends Controller
 {
     public function user_home()
     {
-        $data=online_Course::where('course_type','1')->get();
-        $data1=online_Course::where('course_type','2')->get();
-        $data2=online_Course::where('course_type','3')->get();
+        $data=online_Course::where('course_type','Online Course')->get();
+        $data1=online_Course::where('course_type','Offline Course')->get();
+        $data2=online_Course::where('course_type','Video Course')->get();
          return view('user.home',compact("data", "data1", "data2"));
      }
      public function user_course()
     {
         
-        $data=online_Course::where('course_type','1')->get();
-        $data1=online_Course::where('course_type','2')->get();
-        $data2=online_Course::where('course_type','3')->get();
+        $data=online_Course::where('course_type','Online Course')->get();
+        $data1=online_Course::where('course_type','Offline Course')->get();
+        $data2=online_Course::where('course_type','Video Course')->get();
          return view('user.course',compact("data", "data1", "data2"));
      }
      public function user_service()
@@ -85,5 +85,8 @@ class NavbarController extends Controller
         //dd($data);
           return view('user.course_details',compact("data"));
       }
+
+
+
 
 }

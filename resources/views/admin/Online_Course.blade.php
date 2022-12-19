@@ -14,14 +14,13 @@
       color: #140a0a;
     }
     th, td {
-
-  text-align: left;
-  padding: 8px;
+    text-align: center;
+    padding: 2px;
 }
     table{
       border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
+  width: 50%;
     }
 td:hover{
   background-color: #cdc9c9;
@@ -115,9 +114,9 @@ td:hover{
           <div class="col-5"><label for="exampleFormControlInput1" class="form-label">Course type:</label><br>
             <select name="course_type" style="background-color: #ffffff; color:#000000;" class="form-control custom-select" required>
               <option placeholder="">Select a course type</option>
-              <option value="1" >Online Course</option>
-              <option value="2" >Offline Course</option>
-              <option value="3" >Video Course</option>
+              <option value="Online Course" >Online Course</option>
+              <option value="Offline Course" >Offline Course</option>
+              <option value="Video Course" >Video Course</option>
             </select>
           </div>
           <div>
@@ -145,14 +144,22 @@ td:hover{
       </div>
     </div>
   </div><br><br>
-  <table id="" class="display">
+  {{-- <table id="" class="display">
     <thead>
       <tr class="table-success" style="color: black !important;">
-        <th style="padding: 20px">Title</th>
-        <th style="padding: 20px">Regular fee</th>
-        <th style="padding: 20px">Discount fee</th>
-        <th style="padding: 20px">Image</th>
-        <th style="padding: 20px">Action</th>
+        <th style="padding: 10px">Title</th>
+        <th style="padding: 10px">Regular fee</th>
+        <th style="padding: 10px">Discount fee</th>
+        <th style="padding: 10px"> Course type</th>
+        <th style="padding: 10px"> Course Image</th>
+        <th style="padding: 10px">Course purpuse</th>
+        <th style="padding: 10px">Course about</th>
+        <th style="padding: 10px">Course syllabus</th>
+        <th style="padding: 10px"> Course video link</th>
+        <th style="padding: 10px"> instractor image</th>
+        <th style="padding: 10px">instractor name</th>
+        <th style="padding: 10px">instractor details</th>
+        <th style="padding: 3px">Action</th>
       </tr>
     </thead>
     @foreach ($data as $data)
@@ -161,19 +168,72 @@ td:hover{
         <td>{{ $data->title }}</td>
         <td>{{ $data->regular_fee }}</td>
         <td>{{ $data->discount_fee }}</td>
-        <td><img height="100" width="100" src="Online_Course/{{ $data->image }}" ></td>
+        <td>{{ $data->course_type }}</td>
+        <td><img style="height:90px; width:90px;"  src="Online_Course/{{ $data->image }}" ></td>
+        <td>{{ $data->course_purpuse }}</td>
+        <td>{{ $data->course_about }}</td>
+        <td>{{ $data->course_slybus }}</td>
+        <td>{{ $data->video_link }}</td>
+        <td><img style="height:90px; width:90px;"  src="ins_Course/{{ $data->ins_image }}" ></td>
+        <td>{{ $data->ins_name }}</td>
+        <td>{{ $data->ins_details }}</td>
         <td><a class="btn btn-warning" href="{{ url('/deleteOnline_Course',$data->id) }}">Delete</a>&nbsp
           <a class="btn btn-primary" href="{{ url('/updateOnline_Course',$data->id) }}">Edit</a></td> 
       </tr>
     </tbody>
     @endforeach
     
-  </table>
+  </table> --}}
+  <div class="table-responsive-xxl">
+    <table class="table table-dark table-striped-columns table-striped table-hover">
+      <thead>
+          <tr class="table-success" style="color: black !important;">
+            <th style="padding: 10px">Title</th>
+            <th style="padding: 10px">Regular fee</th>
+            <th style="padding: 10px">Discount fee</th>
+            <th style="padding: 10px"> Course type</th>
+            <th style="padding: 10px"> Course Image</th>
+            <th style="padding: 10px">Course purpuse</th>
+            <th style="padding: 10px">Course about</th>
+            <th style="padding: 10px">Course syllabus</th>
+            <th style="padding: 10px"> Course video link</th>
+            <th style="padding: 10px"> instractor image</th>
+            <th style="padding: 10px">instractor name</th>
+            <th style="padding: 10px">instractor details</th>
+            <th style="padding: 3px">Action</th>
+          </tr>
+        </thead>
+        @foreach ($data as $data)
+        <tbody>
+          <tr style="background-color: #ffffff; color:black;" class="item">
+            <td style="height:20px; width:20px">{{ $data->title }}</td>
+            <td style="height:20px; width:5px">{{ $data->regular_fee }}</td>
+            <td style="height:20px; width:5px">{{ $data->discount_fee }}</td>
+            <td style="height:20px; width:5px">{{ $data->course_type }}</td>
+            <td style="height:20px; width:5px"><img style="height:90px; width:90px;"  src="Online_Course/{{ $data->image }}" ></td>
+            <td style="height:20px; width:5px">{{ $data->course_purpuse }}</td>
+            <td style="height:20px; width:5px">{{ $data->course_about }}</td>
+            <td style="height:20px; width:5px">{{ $data->course_slybus }}</td>
+            <td style="height:20px; width:5px">{{ $data->video_link }}</td>
+            <td style="height:20px; width:5px"><img style="height:90px; width:90px;"  src="ins_Course/{{ $data->ins_image }}" ></td>
+            <td style="height:20px; width:5px">{{ $data->ins_name }}</td>
+            <td style="height:20px; width:5px">{{ $data->ins_details }}</td>
+            <td style="height:20px; width:5px"><a class="btn btn-warning" href="{{ url('/deleteOnline_Course',$data->id) }}">Delete</a>&nbsp
+              <a class="btn btn-primary" href="{{ url('/updateOnline_Course',$data->id) }}">Edit</a></td> 
+          </tr>
+        </tbody>
+        @endforeach
+    </table>
+  </div>
+
 <span>
 
 </span>
 </div>
 </div>
+{{-- <table class="table table-success table-striped">
+  ...
+</table> --}}
 
 
 

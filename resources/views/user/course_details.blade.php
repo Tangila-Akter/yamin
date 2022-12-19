@@ -142,51 +142,57 @@
                 </div>
               </div>
        
-      
+              
       <div class="col">
         <section  class="sticky-top">
             <div class="card sticky_card" >
-              <iframe  class="detail_video" src="{{ $data->video_link }}">
-              </iframe>
-
-                <div class="card-body">
-                  <h5 class="card-title card-title0">{{ $data->title }}</h5>
-                  <p class="card-text card-title1">Discount Fee <span class="right">{{ $data->regular_fee }} BDT</span></p>
-                  <p class="card-text card-title1" style="color:red ;">Regular Fee <span class="right" style="text-decoration: line-through;">{{ $data->discount_fee }} BDT</span></p>
-                  <a href="#" class="btn btn-primary btn-hover-dark">কোর্সটি কিনুন </a><br>
-                  <br>
-                  <div class="row">
-                    <div class="col" >
-                        <div class="row">
-                            <div class="col-4">
-                                <i class="fas fa-book-reader" style="font-size:30px;color:#3f3e3d; float: right;"></i>
+              <form action="{{ url('/addcart',$data->id) }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <iframe  class="detail_video" src="{{ $data->video_link }}">
+                </iframe>
+                
+                  
+                  <div class="card-body">
+                    <h5 class="card-title card-title0">{{ $data->title }}</h5>
+                    <p class="card-text card-title1">Discount Fee <span class="right">{{ $data->regular_fee }} BDT</span></p>
+                    <p class="card-text card-title1" style="color:red ;">Regular Fee <span class="right" style="text-decoration: line-through;">{{ $data->discount_fee }} BDT</span></p>
+                    <input  type="submit" class="btn btn-primary btn-hover-dark" value="কোর্সটি কিনুন " >
+                    <br>
+                    <br>
+                    <div class="row">
+                      <div class="col" >
+                          <div class="row">
+                              <div class="col-4">
+                                  <i class="fas fa-book-reader" style="font-size:30px;color:#3f3e3d; float: right;"></i>
+                              </div>
+                              <div class="col-8 align-items-center1">
+                                  <h6 >কোর্সটি করেছেন</h6>
+                                  <h6 >২২৯৯৬ জন</h6>
+                              </div>
                             </div>
-                            <div class="col-8 align-items-center1">
-                                <h6 >কোর্সটি করেছেন</h6>
-                                <h6 >২২৯৯৬ জন</h6>
+                      <div>
+                          
+                      </div>
+                      </div>
+                      <div class="col" >
+                          <div class="row">
+                              <div class="col-4">
+                                  <i class="fas fa-clock" style="font-size:30px;color:#3f3e3d; float: right;"></i>
+                              </div>
+                              <div class="col-8 align-items-center1">
+                                  <h6 >সময় লাগবে</h6>
+                                  <h6 >২৫ ঘণ্টা</h6>
+                              </div>
                             </div>
-                          </div>
-                    <div>
-                        
-                    </div>
-                    </div>
-                    <div class="col" >
-                        <div class="row">
-                            <div class="col-4">
-                                <i class="fas fa-clock" style="font-size:30px;color:#3f3e3d; float: right;"></i>
-                            </div>
-                            <div class="col-8 align-items-center1">
-                                <h6 >সময় লাগবে</h6>
-                                <h6 >২৫ ঘণ্টা</h6>
-                            </div>
-                          </div>
-                    <div>
-                        
-                    </div>
-                    </div>
-                </div>
-
-                </div>
+                      <div>
+                          
+                      </div>
+                      </div>
+                  </div>
+  
+                  </div>
+              </form>
+              
               </div>
         </section>
        

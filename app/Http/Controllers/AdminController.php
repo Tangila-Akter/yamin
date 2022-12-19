@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Online_Course;
-use App\Models\Offline_Course;
-use App\Models\Video_Course;
-use App\Models\Service;
 use App\Models\Management_Team;
 use App\Models\Student_Consulting;
 use App\Models\Support_Team;
@@ -20,6 +17,7 @@ use App\Models\All_Teacher;
 use App\Models\Success_Student;
 use App\Models\Contact;
 use App\Models\admin_Service;
+use App\Models\Cart;
 class AdminController extends Controller
 {
     public function admin_register()
@@ -62,11 +60,11 @@ class AdminController extends Controller
 
      public function update_updateregister(Request $request,$id)
      {
-         $data=user::find($id);
+         $user=user::find($id);
          $user->name=$request->name;
           $user->phone=$request->phone;
           $user->email=$request->email;
-         $data->save();
+         $user->save();
  
          return redirect()->back();
      }
@@ -134,104 +132,6 @@ class AdminController extends Controller
          return redirect()->back();
      }
 
-
-
-
-     public function admin_Offline_Course()
-    {
-        $data=offline_Course::all();
-         return view('admin.Offline_Course',compact("data"));
-     }
-     public function uploadoffline_Course( Request $request)
-     {
-         $data = new offline_Course;
-         $image=$request->image;
-          $imagename=time().'.'.$image->getClientOriginalExtension() ;
-          $request->image->move('offline_Course',$imagename);
-          $data->image=$imagename;
-         $data->title=$request->title;
-         $data->regular_fee=$request->regular_fee;
-         $data->discount_fee=$request->discount_fee;
- 
-         $data->save();
- 
-         return redirect()->back();
-     }
-     public function deleteoffline_Course($id)
-     {
-         $data=offline_Course::find($id);
-         $data->delete();
-         return redirect()->back();
-     }
-     public function updateOffline_Course($id)
-     {
-          $data=offline_Course::find($id);
-         return view("admin.updateoffline_course",compact("data"));
-     }
-
-     public function update_Offline_Course(Request $request,$id)
-     {
-         $data=offline_Course::find($id);
-         $image=$request->image;
-         $imagename=time().'.'.$image->getClientOriginalExtension() ;
-         $request->image->move('offline_Course',$imagename);
-         $data->image=$imagename;
-        $data->title=$request->title;
-        $data->regular_fee=$request->regular_fee;
-        $data->discount_fee=$request->discount_fee;
-
-        $data->save();
-
-        return redirect()->back();
-     }
-
-
-     public function admin_Video_Course()
-    {
-        $data=video_Course::all();
-         return view('admin.Video_Course',compact("data"));
-     }
-     public function uploadVideo_Course( Request $request)
-     {
-         $data = new video_Course;
-         $image=$request->image;
-          $imagename=time().'.'.$image->getClientOriginalExtension() ;
-          $request->image->move('Video_Course',$imagename);
-          $data->image=$imagename;
-         $data->title=$request->title;
-         $data->regular_fee=$request->regular_fee;
-         $data->discount_fee=$request->discount_fee;
- 
-         $data->save();
- 
-         return redirect()->back();
-     }
-     public function deleteVideo_Course($id)
-     {
-         $data=video_Course::find($id);
-         $data->delete();
-         return redirect()->back();
-     }
-     public function updateVideo_Course($id)
-     {
-          $data=video_Course::find($id);
-         return view("admin.updateVideo_Course",compact("data"));
-     }
-
-     public function update_Video_Course(Request $request,$id)
-     {
-         $data=video_Course::find($id);
-         $image=$request->image;
-          $imagename=time().'.'.$image->getClientOriginalExtension() ;
-          $request->image->move('Video_Course',$imagename);
-          $data->image=$imagename;
-         $data->title=$request->title;
-         $data->regular_fee=$request->regular_fee;
-         $data->discount_fee=$request->discount_fee;
-         $data->save();
- 
-         return redirect()->back();
-     }
      public function admin_management_team()
      {
          $data=management_team::all();

@@ -8,7 +8,8 @@
        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
          <ul class="nav justify-content-center navbar-nav">
            <li class="nav-item active">
-             <a class="nav-link" href="{{ url('/user_home') }}">Home</a>
+            
+             <a class="nav-link" href="{{ url('/user_home') }}"><i class="fa fa-home" style="font-size:17.5px"></i></a>
            </li>
            <li class="nav-item">
              <a class="nav-link" href="{{ url('/user_course') }}">All Course</a>
@@ -36,14 +37,17 @@
             </li>
             @endauth
           </li>
-           {{-- <li class="nav-item">
-            <a class="nav-link" href="contact.html">Login
-                / 
-               Register</a>
-          </li> --}}
-          <li class="nav-item">
+           <li class="nav-item">
             @if (Route::has('login'))
             <div class="">
+                @auth
+            <a class="nav-link" href="{{ url('/cart',Auth::user()->id) }}"><i class="fas fa-cart-arrow-down" style="font-size:17.5px"></i></a>
+            @endif
+                @endauth
+          </li>
+          <li class="nav-item">
+            @if (Route::has('login'))
+            
                 @auth
                 {{-- <li class="scroll-to-section"><a href="{{ url('myreservation') }}">My reservation</a></li>  --}}
                                                 {{-- <li><x-app-layout></x-app-layout></li> --}}

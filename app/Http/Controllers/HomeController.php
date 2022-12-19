@@ -8,14 +8,10 @@ use App\Models\User;
 use App\Models\Online_Course;
 use App\Models\Offline_Course;
 use App\Models\Video_Course;
-use App\Models\Management_Team;
-use App\Models\Student_Consulting;
-use App\Models\Support_Team;
-use App\Models\Web_Team;
-use App\Models\All_Teacher;
-use App\Models\Success_Student;
 use App\Models\Contact;
 use App\Models\admin_Service;
+use App\Models\Cart;
+
 class HomeController extends Controller
 {
     // /**
@@ -41,7 +37,7 @@ class HomeController extends Controller
     // {
     //     if(Auth::id())
     //     {
-            
+
     //         if(Auth::user()->usertype=='0')
     //         {
     //             $data=online_Course::all();
@@ -59,59 +55,101 @@ class HomeController extends Controller
     //         return redirect()->back();
     //     }
     // }
-    public function index(){
-        if(Auth::id())
-        {
+    public function index()
+    {
+        if (Auth::id()) {
             return redirect('redirects');
-        }
-        else
-        $data=online_Course::all();
-        $data1=offline_Course::all();
-        $data2=video_Course::all();
+        } else
+        $data=online_Course::where('course_type','Online Course')->get();
+        $data1=online_Course::where('course_type','Offline Course')->get();
+        $data2=online_Course::where('course_type','Video Course')->get();
 
-        return view('user.home',compact("data", "data1", "data2"));
+        return view('user.home', compact("data", "data1", "data2"));
     }
-   
-    
-    public function redirects(){
-        $data=online_Course::all();
-        $data1=offline_Course::all();
-        $data2=video_Course::all();
-        $usertype= Auth::user()->usertype;
-        if($usertype =='1')
-        {
-            return view('admin.home',compact("data", "data1", "data2"));
-        }
-        else
-        $data=online_Course::all();
-        $data1=offline_Course::all();
-        $data2=video_Course::all();
 
-        return view('user.home',compact("data", "data1", "data2"));
-        
+
+    public function redirects()
+    {
+        $data=online_Course::where('course_type','Online Course')->get();
+        $data1=online_Course::where('course_type','Offline Course')->get();
+        $data2=online_Course::where('course_type','Video Course')->get();
+        $usertype = Auth::user()->usertype;
+        if ($usertype == '1') {
+            return view('admin.home', compact("data", "data1", "data2"));
+        } else
+        $data=online_Course::where('course_type','Online Course')->get();
+        $data1=online_Course::where('course_type','Offline Course')->get();
+        $data2=online_Course::where('course_type','Video Course')->get();
+        $user_id=Auth::Id();
+        $count=cart::where('user_id',$user_id)->count();
+        return view('user.home', compact("data", "data1", "data2", "count"));
+
     }
-    public function upload_contact(Request $request){
+    public function upload_contact(Request $request)
+    {
         $data = new contact;
-        $data->name=$request->name;
-        $data->email=$request->email;
-        $data->phone=$request->phone;
-        $data->course_name=$request->course_name;
-        $data->course_type=$request->course_type;
-        $data->message=$request->message;
-        
-        if(Auth::id())
-        {
-           
-            $data->user_id=Auth::user()->id;
-            $data->course_id=Auth::online_course()->id;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->course_name = $request->course_name;
+        $data->course_type = $request->course_type;
+        $data->message = $request->message;
+
+        if (Auth::id()) {
+
+            $data->user_id = Auth::user()->id;
+            $data->course_id = Auth::online_course()->id;
         }
         $data->save();
         return redirect()->back();
     }
     public function Online_Course_details($id)
-     {
-          $data=online_Course::find($id);
-         return view("user.Online_Course_details",compact("data"));
-     }
+    {
+        $data = online_Course::find($id);
+        return view("user.Online_Course_details", compact("data"));
+    }
+
+    //-------------cart start----------------
+    public function addcart(Request $request, $id)
+    {
+        if (Auth::id()) {
+            $user_id = Auth::Id();
+            $online_course_id = $id;
+            $cart = new cart;
+            $cart->user_id = $user_id;
+            $cart->online_course_id = $online_course_id;
+            $cart->save();
+            return redirect()->back();
+        } else
+            {
+                return redirect('/login');
+            }
+
+       
+    }
+    public function cart(Request $request,$id)
+    {
+        if(Auth::id()==$id)
+        {
+            $count =cart::where('user_id',$id)->count();
+            $data2= cart::select('*')->where('user_id','=' , $id)->get();
+            $data=cart::where('user_id',$id)->join('online__courses', 'carts.online_course_id', '=', 'online__courses.id')->get();
+            return view("user.cart",compact('count','data','data2'));
+        }
+        else
+        {
+            return redirect()->back();
+        }
+        
+    }
+
+    public function remove($id)
+    {
+        $data=cart::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
+//-------------cart end----------------
 
 }

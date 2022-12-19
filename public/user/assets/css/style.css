@@ -380,6 +380,10 @@ display:none;
 		color: #eef7f1;
 		padding: 7px 0px;
 	}
+	.header .nav ul li{
+		display: inline-block;
+		margin-left: 0px;
+	}
 }
 .copyright-link a+a::before {
     content: '*';

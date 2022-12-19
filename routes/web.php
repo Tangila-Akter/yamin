@@ -21,6 +21,9 @@ use App\Http\Controllers\NavbarController;
 // });
 Route::get("/", [HomeController::class, "index"]);
 Route::get("/redirects", [HomeController::class, "redirects"]);
+Route::post("/addcart/{id}", [HomeController::class, "addcart"]);
+Route::get("/cart/{id}", [HomeController::class, "cart"]);
+Route::get("/remove/{id}", [HomeController::class, "remove"]);
 
 
 
