@@ -23,6 +23,8 @@
               <th style="padding: 40px">Action</th>
             </tr>
           </thead>
+       <?php   $cart=$data2; ?>
+   
           @foreach ($data as $data)
           <tbody>
             <tr style="background-color: #ffffff; color:black; text-align: center;" class="item">
@@ -47,10 +49,16 @@
   <button class="btn btn-primary" type="button" id="order">Enroll Now</button>
 
 </div>
+<form  method="post" action="{{ url('/checkout') }}">
+  @csrf
 <div id="appear" align="center" style="padding: 10px; display:none;">
 <div style="padding: 10px;">
 <label>Name</label>
 <input type="text" name="name" placeholder="Enter name">
+
+@foreach($cart as $cart)
+<input type="hidden" name="cart[]" value="{{ $cart->id }}" placeholder="Enter name">
+@endforeach
 </div>
 <div style="padding: 10px;">
   <label>Phone</label>

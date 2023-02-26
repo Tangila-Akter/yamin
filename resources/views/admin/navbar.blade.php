@@ -11,6 +11,14 @@
         </a>
       </li>
       <li class="nav-item menu-items">
+        <a class="nav-link" href="{{ url('/admin_order') }}">
+          <span class="menu-icon">
+            <i class="mdi mdi-speedometer"></i>
+          </span>
+          <span class="menu-title">Order </span>
+        </a>
+      </li>
+      <li class="nav-item menu-items">
         <div class="dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="menu-icon">

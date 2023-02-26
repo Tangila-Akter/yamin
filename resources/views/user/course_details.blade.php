@@ -157,6 +157,7 @@
                     <p class="card-text card-title1">Discount Fee <span class="right">{{ $data->regular_fee }} BDT</span></p>
                     <p class="card-text card-title1" style="color:red ;">Regular Fee <span class="right" style="text-decoration: line-through;">{{ $data->discount_fee }} BDT</span></p>
                     <input  type="submit" class="btn btn-primary btn-hover-dark" value="কোর্সটি কিনুন " >
+
                     <br>
                     <br>
                     <div class="row">
